@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="my">
 <head>
   <meta charset="UTF-8" />
@@ -12,37 +12,30 @@
       margin: 0;
       padding: 0;
     }
-
     header {
       background-color: #003580;
       padding: 15px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
     }
-
     nav ul {
       list-style: none;
       margin: 0;
       padding: 0;
       display: flex;
       gap: 20px;
-      flex-wrap: wrap;
     }
-
     nav a {
       color: white;
       text-decoration: none;
       font-weight: 500;
       cursor: pointer;
     }
-
     nav a:hover {
       color: #ffcc00;
       text-decoration: underline;
     }
-
     #languageSwitcher {
       background-color: #ffcc00;
       border: none;
@@ -51,161 +44,194 @@
       font-weight: bold;
       cursor: pointer;
     }
-
     .hero h2 {
       color: yellow;
       text-align: center;
-      font-size: 2.2rem;
+      font-size: 2.5rem;
       margin-bottom: 10px;
     }
-
     .hero p {
       color: whitesmoke;
       text-align: center;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       margin-bottom: 20px;
-      line-height: 1.4;
+      line-height: 1;
     }
 
     .hero h3 {
       color: white;
+      text-box-edge: yellow;
       text-align: center;
       font-size: 1.5rem;
       margin-bottom: 10px;
     }
-
     .hero .about-text {
-      color: whitesmoke;
-      text-align: justify;
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin: 0 10px;
+    color: whitesmoke;
+    text-align: justify; /* ✅ justify စာ alignment */
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-left: 0in;
     }
-
     .training-list {
-      columns: 2;
-      column-gap: 40px;
-      list-style-type: disc;
-      text-align: left;
-      display: block;
-      font-size: 1.1rem;
-      line-height: 1.6;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0;
+    columns: 2;                /* ✅ ၂ ကော်လံ ခွဲခြင်း */
+    column-gap: 60px;          /* ကော်လံနဲ့ကော်လံအကြားအကွာအဝေး */
+    list-style-type: disc;     /* စာရင်းအမှတ် bullet */
+    text-align: left;          /* စာကို ဘယ်ဖက် alignment */
+    display: block;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    max-width: 1100px;
+    margin: 0 auto;            /* စာကိုအလယ်တည် */
+    padding: 0;
     }
 
     .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 10px;
-      max-width: 1000px;
-      margin: 20px auto;
-    }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+  max-width: 1000px;
+  margin: 20px auto;
+}
 
-    .gallery-item {
-      overflow: hidden;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
+.gallery-item {
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
 
-    .gallery-item img {
-      width: 100%;
-      height: 120px;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.3s;
-    }
+.gallery-item img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s;
+}
 
-    .gallery-item:hover img {
-      transform: scale(1.1);
-    }
+.gallery-item:hover img {
+  transform: scale(1.10);
+}
 
-    .gallery-item:hover {
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    }
+.gallery-item:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
 
-    section {
-      padding: 20px;
-    }
+/* Lightbox Styles */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+}
 
-    .box-heading {
-      border: 3px solid #ffcc00;
-      padding: 15px 20px;
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
+.lightbox-content {
+  margin: auto;
+  display: block;
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
 
-    /* Responsive CSS */
-    @media screen and (max-width: 768px) {
-      header {
-        flex-direction: column;
-        align-items: center;
-        padding: 10px 20px;
-      }
 
-      nav ul {
-        flex-direction: column;
-        gap: 10px;
-      }
+/* Close Button Box */
+.close {
+  position: absolute;
+  top: 30px;
+  right: 35px;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px 15px;                  /* box padding */
+  color: white;
+  background-color: rgba(255,0,0,0.5);   /* semi-transparent box */
+  border-radius: 8px;                  /* rounded corners */
+  transition: all 0.3s;                /* smooth hover effect */
+}
 
-      .hero h2 {
-        font-size: 1.8rem;
-      }
+.close:hover {
+  background-color: #ffcc00; /* hover background color */
+  color: black;              /* hover text color */
+}
 
-      .hero p,
-      .hero .about-text,
-      .training-list li {
-        font-size: 1rem;
-      }
+/* Next / Previous Buttons Box */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);          /* vertically center */
+  padding: 16px 20px;                   /* box padding */
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  background-color: rgba(0,0,0,0.5);    /* semi-transparent box */
+  border-radius: 8px;
+  transition: all 0.3s;                 /* smooth hover effect */
+  user-select: none;
+}
 
-      .training-list {
-        columns: 1;
-        column-gap: 0;
-      }
+.prev {
+  left: 30px;
+}
 
-      .gallery {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-      }
+.next {
+  right: 30px;
+}
 
-      header img {
-        height: 60px;
-      }
+.prev:hover, .next:hover {
+  background-color: #ffcc00; /* hover background color */
+  color: black;              /* hover text color */
+}
 
-      .hero img {
-        max-width: 100%;
-        height: auto;
-      }
-    }
+
+section {
+ padding: 20px;
+}
+
+.box-heading {
+  border: 3px solid #ffcc00;   /* border color */
+  padding: 15px 20px;          /* inner spacing */
+  background-color: rgba(255, 255, 255, 0.1);  /* slightly transparent */
+  border-radius: 10px;         /* rounded corners */
+  text-align: center;           /* center the text */
+  margin-bottom: 20px;          /* space below the box */
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+
+
   </style>
 </head>
 <body>
   <header>
-    <div style="display:flex; align-items:center; gap:10px;">
-      <img src="navy.png" alt="Myanmar Navy Logo" style="height:100px; width:auto;">
-      <h1 id="navTitle">တပ်မတော်(ရေ)</h1>
-    </div>
-    <nav>
-      <ul>
-        <li><a id="homeLink">မူလစာမျက်နှာ</a></li>
-        <li><a id="aboutLink">အကြောင်းအရာ</a></li>
-        <li><a id="programsLink">လေ့ကျင့်ခန်းများ</a></li>
-        <li><a id="galleryLink">မှတ်တမ်းဓာတ်ပုံများ</a></li>
-        <li>
-          <select id="languageSwitcher" onchange="translatePage()">
-            <option value="my">Myanmar</option>
-            <option value="en">English</option>
-          </select>
-        </li>
-      </ul>
-    </nav>
-  </header>
+  <div style="display:flex; align-items:center; gap:10px;">
+    <img src="navy.png" alt="Myanmar Navy Logo" style="height:100px; width:auto;">
+    <h1 id="navTitle">တပ်မတော်(ရေ)</h1>
+  </div>
+  <nav>
+    <ul>
+      <li><a id="homeLink">မူလစာမျက်နှာ</a></li>
+      <li><a id="aboutLink">အကြောင်းအရာ</a></li>
+      <li><a id="programsLink">လေ့ကျင့်ခန်းများ</a></li>
+      <li><a id="galleryLink">မှတ်တမ်းဓာတ်ပုံများ</a></li>
+      <li>
+        <select id="languageSwitcher" onchange="translatePage()">
+          <option value="my">Myanmar</option>
+          <option value="en">English</option>
+        </select>
+      </li>
+    </ul>
+  </nav>
+</header>
 
+
+  <!-- Home Content -->
   <section class="hero content" id="homeContent">
     <h2 id="title">ရေတပ်စစ်နည်းဗျူဟာ စစ်ကစားမှုလေ့ကျင့်ရေးခန်းမ</h2>
     <p id="line1">တပ်မတော်(ရေ)ရှိ အရာရှိ၊ စစ်သည်များအား ပင်လယ်ပြင်စစ်ဆင်ရေးတာဝန်ထမ်းဆောင်ချိန်တွင်</p>
@@ -213,49 +239,360 @@
     <img src="logo.png" style="display:block; margin: 20px auto; max-width: 90%; height: auto;" />
   </section>
 
-  <!-- About Section -->
+  <!-- About Content -->
   <section class="hero content" id="aboutContent" style="display:none;">
-    <h3 class="box-heading" id="aboutastt">ASTT ဆိုင်ရာ အချက်အလက်များ</h3>
-    <div class="about-text">
-      <ul>
-        <li id="line3">ASTT အကြောင်း...</li>
-        <li id="line4">နောက်ထပ် အချက်အလက်...</li>
-      </ul>
+  <h3 class="box-heading" id="aboutastt">ASTT ဆိုင်ရာ အချက်အလက်များ</h3>
+  <div class="about-text">
+    <ul>
+      <li id="line3">ရေတပ်လေ့ကျင့်ရေးဌာနချုပ်ဌာနချုပ်ရှိ လက်နက်နှင့်လက်နက်စနစ်သင်တန်းဌာနတွင် Maritime Wargame Center အပြင် အဆင့်မြှင့်တင်ထားသော ရေတပ်စစ်နည်းဗျူဟာ စစ်ကစားမှုလေ့ကျင့်ရေးခန်းမ Action Speed Tactical Trainer- ASTT  (Wargame Simulator) အား အိန္ဒိယနိုင်ငံ၊ Messrs Anawave Systems and Solutions Pvt., Ltd ထံမှ ဝယ်ယူရန်ဆောင်ရွက်ခဲ့သည်။</li>
+      <li id="line4">ဝယ်ယူရေးအတွက် စာချုပ်လက်မှတ်ရေးထိုးခြင်းကို ၂၀-၈-၂၀၂၁ တွင်ဆောင်ရွက်ခဲ့သော်လည်း ကမ္ဘာတစ်ဝှမ်းဖြစ်ပွားခဲ့သည့် ကိုဗစ်-၁၉ ရောဂါကြောင့် တပ်ဆင်ခြင်းလုပ်ငန်းများ နှောင့်နှေးခဲ့ပါသည်။</li>
+      <li id="line5">Software အား စစ်ဆေးရန်အတွက် တပ်မတော်(ရေ)မှ ဗိုလ်မှူး အောင်အောင်၊ ဗိုလ်မှူး ကျော်ဇေယျ နှင့် ဗိုလ်ကြီး ထူးမောင်မောင်တို့ အရာရှိ ၃ ဦးအား အိန္ဒိယနိုင်ငံ၊ Bangalore မြို့သို့ ၂၄-၃-၂၀၂၂ ရက်နေ့မှ ၂၉-၃-၂၀၂၂ ရက်နေ့အထိ စေလွှတ်ခဲ့ပါသည်။</li>
+      <li id="line6">ASTT အဆောက်အဦးဆောက်လုပ်ပြီးနောက် ကွန်ပျူတာများတပ်ဆင်ဆောင်ရွက်ခြင်းလုပ်ငန်းကို အိန္ဒိယနိုင်ငံမှ ပညာရှင် ၅ ဦးဖြင့် ၄-၈-၂၀၂၅ မှ ၁၃-၈-၂၀၂၅ ထိဆောင်ရွက်ခဲ့ပါသည်။</li>
+      <li id="line7">အိန္ဒိယနိုင်ငံ ဒုတိယရေတပ်ဦးစီးချုပ်မှ ရေတပ်စစ်နည်းဗျူဟာ စစ်ကစားမှုလေ့ကျင့်ရေးခန်းမအား ၂၈-၉-၂၀၂၅ ရက်နေ့တွင်လွှဲပြောင်းပေးအပ်ခဲ့ပါသည်။</li>
+      <li id="line8">ASTT တွင် အဓိကအားဖြင့် Server Site နှင့်  Client Site ဟူ၍ ၂ မျိုးခွဲခြားထားပြီး Linux OS ဖြင့် မောင်းနှင်ခြင်းဖြစ်ကာ Web Base ပေါ်တွင် အခြေခံအသုံးပြုထားသောကြောင့် မည်သည့် Windows တွင်မဆို Google Chrome Web Browser ဖြင့် ဝင်ရောက်ကစားနိုင်သည်။ </li>
+      <li id="line9">Server Site တွင် Game Control အတွက် Computer ၃ လုံး အသုံးပြုထားပြီး Computer ၁ လုံးစီအတွက် Monitor ၃ လုံးစီ ပါရှိသောကြောင့် Server Site တွင် စုစုပေါင်း Computer ၃ လုံးနှင့် Monitor ၉ လုံးရှိပါသည်။</li>
+      <li id="line10">Client Site တွင် အပြာရောင်တပ်ဖွဲ့အတွက် Computer ၁၁ လုံး၊ အနီရောင်တပ်ဖွဲ့အတွက် Computer ၁၁ လုံးစီပါရှိပြီး Computer ၁ လုံးစီအတွက် Monitor ၂ လုံးစီပါရှိသောကြောင့် Client Site တွင် စုစုပေါင်း Computer ၂၂ လုံးနှင့် Monitor ၄၄ လုံး ရှိပါသည်။</li>
+    </ul>
     </div>
   </section>
 
-  <!-- Programs Section -->
+  <!-- Programs Content -->
   <section class="hero content" id="programsContent" style="display:none;">
     <h3 class="box-heading" id="eprograms">လေ့ကျင့်ခန်းများ</h3>
     <ul class="training-list">
       <li id="line11">လေကြောင်းရန်ကာကွယ်မှု စစ်ဆင်ရေး</li>
       <li id="line12">ရေအောက်ရန်ကာကွယ်မှု စစ်ဆင်ရေး</li>
+      <li id="line13">ရေပြင်ရန်ကာကွယ်မှု စစ်ဆင်ရေး</li>
+      <li id="line14">အီလက်ထရောနစ် စစ်ဆင်ရေး</li>
+      <li id="line15">မိုင်းစစ်ဆင်ရေး</li>
+      <li id="line16">ရေငုပ်သင်္ဘော စစ်ဆင်ရေး</li>
+      <li id="line17">ဝေဟင်စစ်ဆင်ရေး</li>
+      <li id="line18">ကမ်းတက်စစ်ဆင်ရေး</li>
+      <li id="line19">ဒုံးပျံရန်ကာကွယ်မှု စစ်ဆင်ရေး</li>
+      <li id="line20">ပင်လယ်ပြင်ဖြည့်တင်းဆောင်ရွက်မှုလေ့ကျင့်ခန်း</li>
+      <li id="line21">ဆက်သွယ်ရေးဆိုင်ရာ Voice Procedure လေ့ကျင့်ခန်း</li>
+      <li id="line22">ရဟတ်ယာဉ်ထိန်းချုပ်မှု လေ့ကျင့်ခန်း</li>
+      <li id="line23">ပင်လယ်ပြင်ရှာဖွေကယ်ဆယ်ရေးလေ့ကျင့်ခန်း</li>
+      <li id="line24">Work-up Team (တစ်ဦးချင်းဆောင်ရွက်မှုအား စစ်ဆေးခြင်း)</li>
+      <li id="line25">Sensor များအလိုက် Operation များကို လေ့ကျင့်ပေးနိုင်ခြင်းနှင့် စစ်ဆေးနိုင်ခြင်း</li>
+      <li id="line26">ရေယာဉ်တစ်စီးချင်း၏ Teamwork မှန်ကန်မှု ရှိ/ မရှိ စစ်ဆေးနိုင်ခြင်း</li>
+      <li id="line27">NGFS လေ့ကျင့်နိုင်ခြင်းနှင့် စစ်ဆေးနိုင်ခြင်း</li>
+      <li id="line28">Formation များ မောင်းနှင်နိုင်ခြင်း</li>
     </ul>
+
   </section>
 
-  <!-- Gallery Section -->
+  <!-- Gallery Content -->
   <section class="hero content" id="galleryContent" style="display:none;">
-    <h3 class="box-heading" id="photos">မှတ်တမ်းဓာတ်ပုံများ</h3>
-    <div class="gallery">
-      <div class="gallery-item"><img src="photo1.png" alt="Photo 1"></div>
-      <div class="gallery-item"><img src="photo2.png" alt="Photo 2"></div>
+  <h3 class="box-heading" id="photos">မှတ်တမ်းဓာတ်ပုံများ</h3>
+      <p id="line29">ဓာတ်ပုံများကို click လုပ်၍ ကြည့်နိုင်ပါသည်။</p>
+
+      <div class="gallery">
+      <div class="gallery-item">
+      <img src="photo1.png" alt="Photo 1">
+      </div>
+      <div class="gallery-item">
+      <img src="photo2.png" alt="Photo 2">
+      </div>
+      <div class="gallery-item">
+      <img src="photo3.jpg" alt="Photo 3">
+      </div>
+      <div class="gallery-item">
+      <img src="photo4.jpg" alt="Photo 4">
+      </div>
+      <div class="gallery-item">
+      <img src="photo5.jpg" alt="Photo 1">
+      </div>
+      <div class="gallery-item">
+      <img src="photo6.jpg" alt="Photo 2">
+      </div>
+      <div class="gallery-item">
+      <img src="photo7.jpg" alt="Photo 3">
+      </div>
+      <div class="gallery-item">
+      <img src="photo8.jpg" alt="Photo 4">
+      </div>
+      <div class="gallery-item">
+      <img src="photo9.jpg" alt="Photo 4">
+      </div>
+      <div class="gallery-item">
+      <img src="photo10.jpg" alt="Photo 3">
+      </div>
+      <div class="gallery-item">
+      <img src="photo11.jpg" alt="Photo 4">
+      </div>
+      <div class="gallery-item">
+      <img src="photo12.jpg" alt="Photo 1">
+      </div>
+      <div class="gallery-item">
+      <img src="photo13.jpg" alt="Photo 2">
+      </div>
+      <div class="gallery-item">
+      <img src="photo14.jpg" alt="Photo 3">
+      </div>
+      <div class="gallery-item">
+      <img src="photo15.jpg" alt="Photo 4">
+      </div>
+      <div class="gallery-item">
+      <img src="photo16.jpg" alt="Photo 4">
+      </div>
+      <div class="gallery-item">
+      <img src="photo17.jpg" alt="Photo 3">
+      </div>
+      <div class="gallery-item">
+      <img src="photo18.jpg" alt="Photo 4">
+      </div>
+      <div class="gallery-item">
+      <img src="photo19.jpg" alt="Photo 1">
+      </div>
+      <div class="gallery-item">
+      <img src="photo20.jpg" alt="Photo 2">
+      </div>
+      <div class="gallery-item">
+      <img src="photo21.jpg" alt="Photo 3">
+      </div>
+      <div class="gallery-item">
+      <img src="photo22.jpg" alt="Photo 4">
+      </div>
+      <div class="gallery-item">
+      <img src="photo23.jpg" alt="Photo 4">
+      </div>
+      <div class="gallery-item">
+      <img src="photo24.jpg" alt="Photo 3">
+      </div>
+      <div class="gallery-item">
+      <img src="photo25.jpg" alt="Photo 4">
+      </div>
+      <div class="gallery-item">
+      <img src="photo26.jpg" alt="Photo 1">
+      </div>
+      <div class="gallery-item">
+      <img src="photo27.jpg" alt="Photo 4">
+      </div>
+      <div class="gallery-item">
+      <img src="photo28.jpg" alt="Photo 1">
+      </div>
     </div>
-  </section>
+</section>
+
+<!-- Lightbox Slideshow -->
+    <div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+    </div>
 
 <script>
-  // Simple content switch
-  function showContent(id){
-    document.querySelectorAll(".content").forEach(s => s.style.display = "none");
-    document.getElementById(id).style.display = "block";
-  }
+// Menu click to show gallery
+document.getElementById("galleryLink").addEventListener("click", function(e){
+  e.preventDefault();
+  document.getElementById("galleryContent").style.display = "block";
+});
 
-  document.getElementById("homeLink").onclick = ()=>showContent("homeContent");
-  document.getElementById("aboutLink").onclick = ()=>showContent("aboutContent");
-  document.getElementById("programsLink").onclick = ()=>showContent("programsContent");
-  document.getElementById("galleryLink").onclick = ()=>showContent("galleryContent");
+// Lightbox Slideshow JS
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const closeBtn = document.getElementsByClassName("close")[0];
+const prevBtn = document.getElementsByClassName("prev")[0];
+const nextBtn = document.getElementsByClassName("next")[0];
 
-  // Translation JS placeholder
-  function translatePage(){console.log("Translate page");}
+const galleryImages = document.querySelectorAll(".gallery-item img");
+let currentIndex = 0;
+
+galleryImages.forEach((img, index) => {
+  img.addEventListener("click", () => {
+    currentIndex = index;
+    showLightbox();
+  });
+});
+
+function showLightbox() {
+  lightbox.style.display = "block";
+  lightboxImg.src = galleryImages[currentIndex].src;
+}
+
+function closeLightbox() {
+  lightbox.style.display = "none";
+}
+
+function nextImage() {
+  currentIndex = (currentIndex + 1) % galleryImages.length;
+  showLightbox();
+}
+
+function prevImage() {
+  currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+  showLightbox();
+}
+
+closeBtn.onclick = closeLightbox;
+nextBtn.onclick = nextImage;
+prevBtn.onclick = prevImage;
+
+// Click outside image to close
+lightbox.addEventListener("click", e => {
+  if(e.target === lightbox) closeLightbox();
+});
 </script>
+
+
+
+
+  <script>
+    function translatePage() {
+      const lang = document.getElementById("languageSwitcher").value;
+
+      const translations = {
+        my: {
+          navTitle: "တပ်မတော်(ရေ)",
+          homeLink: "မူလစာမျက်နှာ",
+          aboutLink: "အကြောင်းအရာ",
+          programsLink: "လေ့ကျင့်ခန်းများ",
+          galleryLink: "မှတ်တမ်းဓာတ်ပုံများ",
+          title: "ရေတပ်စစ်နည်းဗျူဟာ စစ်ကစားမှုလေ့ကျင့်ရေးခန်းမ",
+          line1: "တပ်မတော်(ရေ)ရှိ အရာရှိ၊ စစ်သည်များအား ပင်လယ်ပြင်စစ်ဆင်ရေးတာဝန်ထမ်းဆောင်ချိန်တွင်",
+          line2: "စစ်ဆင်မှုနယ်ပယ်(၄)ရပ်ကို ကျွမ်းကျင်ပိုင်နိုင်စွာဖြင့် လေ့ကျင့်ပေးရန်။",
+          aboutastt: "ASTT ဆိုင်ရာ အချက်အလက်များ",
+          line3:"ရေတပ်လေ့ကျင့်ရေးဌာနချုပ်ဌာနချုပ်ရှိ လက်နက်နှင့်လက်နက်စနစ်သင်တန်းဌာနတွင် Maritime Wargame Center အပြင် အဆင့်မြှင့်တင်ထားသော ရေတပ်စစ်နည်းဗျူဟာ စစ်ကစားမှုလေ့ကျင့်ရေးခန်းမ Action Speed Tactical Trainer- ASTT  (Wargame Simulator) အား အိန္ဒိယနိုင်ငံ၊ Messrs Anawave Systems and Solutions Pvt., Ltd ထံမှ ဝယ်ယူရန်ဆောင်ရွက်ခဲ့သည်။",
+          line4:"ဝယ်ယူရေးအတွက် စာချုပ်လက်မှတ်ရေးထိုးခြင်းကို ၂၀-၈-၂၀၂၁ တွင်ဆောင်ရွက်ခဲ့သော်လည်း ကမ္ဘာတစ်ဝှမ်းဖြစ်ပွားခဲ့သည့် ကိုဗစ်-၁၉ ရောဂါကြောင့် တပ်ဆင်ခြင်းလုပ်ငန်းများ နှောင့်နှေးခဲ့ပါသည်။",
+          line5: "Software အား စစ်ဆေးရန်အတွက် တပ်မတော်(ရေ)မှ ဗိုလ်မှူး အောင်အောင်၊ ဗိုလ်မှူး ကျော်ဇေယျ နှင့် ဗိုလ်ကြီး ထူးမောင်မောင်တို့ အရာရှိ ၃ ဦးအား အိန္ဒိယနိုင်ငံ၊ Bangalore မြို့သို့ ၂၄-၃-၂၀၂၂ ရက်နေ့မှ ၂၉-၃-၂၀၂၂ ရက်နေ့အထိ စေလွှတ်ခဲ့ပါသည်။",
+          line6: "ASTT အဆောက်အဦးဆောက်လုပ်ပြီးနောက် ကွန်ပျူတာများတပ်ဆင်ဆောင်ရွက်ခြင်းလုပ်ငန်းကို အိန္ဒိယနိုင်ငံမှ ပညာရှင် ၅ ဦးဖြင့် ၄-၈-၂၀၂၅ မှ ၁၃-၈-၂၀၂၅ ထိဆောင်ရွက်ခဲ့ပါသည်။",
+          line7: "အိန္ဒိယနိုင်ငံ ဒုတိယရေတပ်ဦးစီးချုပ်မှ ရေတပ်စစ်နည်းဗျူဟာ စစ်ကစားမှုလေ့ကျင့်ရေးခန်းမအား ၂၈-၉-၂၀၂၅ ရက်နေ့တွင်လွှဲပြောင်းပေးအပ်ခဲ့ပါသည်။",
+          line8: "ASTT တွင် အဓိကအားဖြင့် Server Site နှင့်  Client Site ဟူ၍ ၂ မျိုးခွဲခြားထားပြီး Linux OS ဖြင့် မောင်းနှင်ခြင်းဖြစ်ကာ Web Base ပေါ်တွင် အခြေခံအသုံးပြုထားသောကြောင့် မည်သည့် Windows တွင်မဆို Google Chrome Web Browser ဖြင့် ဝင်ရောက်ကစားနိုင်သည်။",
+          line9: "Server Site တွင် Game Control အတွက် Computer ၃ လုံး အသုံးပြုထားပြီး Computer ၁ လုံးစီအတွက် Monitor ၃ လုံးစီ ပါရှိသောကြောင့် Server Site တွင် စုစုပေါင်း Computer ၃ လုံးနှင့် Monitor ၉ လုံးရှိပါသည်။",
+          line10: "Client Site တွင် အပြာရောင်တပ်ဖွဲ့အတွက် Computer ၁၁ လုံး၊ အနီရောင်တပ်ဖွဲ့အတွက် Computer ၁၁ လုံးစီပါရှိပြီး Computer ၁ လုံးစီအတွက် Monitor ၂ လုံးစီပါရှိသောကြောင့် Client Site တွင် စုစုပေါင်း Computer ၂၂ လုံးနှင့် Monitor ၄၄ လုံး ရှိပါသည်။",
+          eprograms: "လေ့ကျင့်ခန်းများ",
+          line11: "လေကြောင်းရန်ကာကွယ်မှု စစ်ဆင်ရေး",
+          line12: "ရေအောက်ရန်ကာကွယ်မှု စစ်ဆင်ရေး",
+          line13: "ရေပြင်ရန်ကာကွယ်မှု စစ်ဆင်ရေး",
+          line14: "အီလက်ထရောနစ် စစ်ဆင်ရေး",
+          line15: "မိုင်းစစ်ဆင်ရေး",
+          line16: "ရေငုပ်သင်္ဘော စစ်ဆင်ရေး",
+          line17: "ဝေဟင်စစ်ဆင်ရေး",
+          line18: "ကမ်းတက်စစ်ဆင်ရေး",
+          line19: "ဒုံးပျံရန်ကာကွယ်မှု စစ်ဆင်ရေး",
+          line20: "ပင်လယ်ပြင်ဖြည့်တင်းဆောင်ရွက်မှုလေ့ကျင့်ခန်း",
+          line21: "ဆက်သွယ်ရေးဆိုင်ရာ Voice Procedure လေ့ကျင့်ခန်း",
+          line22: "ရဟတ်ယာဉ်ထိန်းချုပ်မှု လေ့ကျင့်ခန်း",
+          line23: "ပင်လယ်ပြင်ရှာဖွေကယ်ဆယ်ရေးလေ့ကျင့်ခန်း",
+          line24: "တစ်ဦးချင်းဆောင်ရွက်မှုအား စစ်ဆေးနိုင်ခြင်း။",
+          line25: "Sensor များအလိုက် Operation များကို လေ့ကျင့်ပေးနိုင်ခြင်းနှင့် စစ်ဆေးနိုင်ခြင်း",
+          line26: "ရေယာဉ်တစ်စီးချင်း၏ Teamwork မှန်ကန်မှု ရှိ/ မရှိ စစ်ဆေးနိုင်ခြင်း",
+          line27: "NGFS လေ့ကျင့်နိုင်ခြင်းနှင့် စစ်ဆေးနိုင်ခြင်း",
+          line28: "Formation များ မောင်းနှင်နိုင်ခြင်း",
+          photos: "မှတ်တမ်းဓာတ်ပုံများ",
+          line29: "ဓာတ်ပုံများကို click လုပ်၍ ကြည့်နိုင်ပါသည်။"
+
+
+        },
+        en: {
+          navTitle: "Myanmar Navy",
+          homeLink: "Home",
+          aboutLink: "About",
+          programsLink: "Programs",
+          galleryLink: "Gallery",
+          title: "Action Speed Tactical Trainer (ASTT)",
+          line1: "To train naval officers and sailors to effectively conduct maritime operations.",
+          line2: "enhancing readiness across the four major naval domains.",
+          aboutastt: "About of ASTT",
+          line3:"At the Naval Training Command, under the Department of Weapons and Weapon Systems, there is not only the Maritime Wargame Center but also an upgraded Action Speed Tactical Trainer (ASTT) – Wargame Simulator from Messrs Anawave Systems and Solutions Pvt. Ltd., India.",
+          line4:"Although the contract for the procurement was signed on 20 August 2021, the installation process was delayed due to the COVID-19.",
+          line5:"To check the software system, three officers from the Myanmar Navy — Lieutenant Commander Aung Aung, Lieutenant Commander Kyaw Zaya and Lieutenant Htoo Maung Maung were sent to Bangalore, India, from 24 March 2022 to 29 March 2022.",
+          line6: "After the construction of the ASTT building was completed, a team of five experts from India carried out the computer installation works from 4 August 2025 to 13 August 2025.",
+          line7: "Vice Chief of Naval Staff of India officially handed over the ASTT on 28 September 2025.",
+          line8: "The ASTT system is primarily divided into two sections: the Server Site and the Client Site. It operates on a Linux-based operating system and utilizes a web-based interface, enabling users to access and operate the system via Google Chrome on any Windows platform.",
+          line9: "The Server Site uses three computers for game control, with 3 monitors assigned to each computer. Therefore, the Server Site has a total of 3 computers and 9 monitors.",
+          line10: "At the Client Site, 11 computers are allocated to the Blue Team and 11 computers to the Red Team, with two monitors assigned to each computer. Therefore, the Client Site comprises a total of 22 computers and 44 monitors.",
+          eprograms: "Programs",
+          line11: "AAW  - Anti-Air Warfare",
+          line12: "ASW  - Anti-Submarine Warfare",
+          line13: "ASuW - Anti-Surface Warfare",
+          line14: "EW - Electronic Warfare",
+          line15: "Mine Warfare",
+          line16: "Submarine Operation",
+          line17: "Air Operation",
+          line18: "Amphibious Operation",
+          line19: "ASMD - Anti-Ship Missile Defense",
+          line20: "Replenishment at Sea",
+          line21: "Communication – Voice Procedure",
+          line22: "Helo Control (Air Control)",
+          line23: "Search and Rescue",
+          line24: "Work-up Team",
+          line25: "The system enables training and evaluation of operational procedures utilizing various sensor systems.",
+          line26: "The system enables checking the accuracy and effectiveness of teamwork for each ship.",
+          line27: "The system enables the training and assessment of Naval Gunfire Support (NGFS) operations.",
+          line28: "Formation",
+          photos: "Photos",
+          line29: "Photos can be viewed by clicking on them."
+
+
+        }
+      };
+
+      document.getElementById("navTitle").textContent = translations[lang].navTitle;
+      document.getElementById("homeLink").textContent = translations[lang].homeLink;
+      document.getElementById("aboutLink").textContent = translations[lang].aboutLink;
+      document.getElementById("programsLink").textContent = translations[lang].programsLink;
+      document.getElementById("galleryLink").textContent = translations[lang].galleryLink;
+      document.getElementById("title").textContent = translations[lang].title;
+      document.getElementById("line1").textContent = translations[lang].line1;
+      document.getElementById("line2").textContent = translations[lang].line2;
+      document.getElementById("aboutastt").textContent = translations[lang].aboutastt;
+      document.getElementById("line3").textContent = translations[lang].line3;
+      document.getElementById("line4").textContent = translations[lang].line4;
+      document.getElementById("line5").textContent = translations[lang].line5;
+      document.getElementById("line6").textContent = translations[lang].line6;
+      document.getElementById("line7").textContent = translations[lang].line7;
+      document.getElementById("line8").textContent = translations[lang].line8;
+      document.getElementById("line9").textContent = translations[lang].line9;
+      document.getElementById("line10").textContent = translations[lang].line10;
+      document.getElementById("eprograms").textContent = translations[lang].eprograms;
+      document.getElementById("line11").textContent = translations[lang].line11;
+      document.getElementById("line12").textContent = translations[lang].line12;
+      document.getElementById("line13").textContent = translations[lang].line13;
+      document.getElementById("line14").textContent = translations[lang].line14;
+      document.getElementById("line15").textContent = translations[lang].line15;
+      document.getElementById("line16").textContent = translations[lang].line16;
+      document.getElementById("line17").textContent = translations[lang].line17;
+      document.getElementById("line18").textContent = translations[lang].line18;
+      document.getElementById("line19").textContent = translations[lang].line19;
+      document.getElementById("line20").textContent = translations[lang].line20;
+      document.getElementById("line21").textContent = translations[lang].line21;
+      document.getElementById("line22").textContent = translations[lang].line22;
+      document.getElementById("line23").textContent = translations[lang].line23;
+      document.getElementById("line24").textContent = translations[lang].line24;
+      document.getElementById("line25").textContent = translations[lang].line25;
+      document.getElementById("line26").textContent = translations[lang].line26;
+      document.getElementById("line27").textContent = translations[lang].line27;
+      document.getElementById("line28").textContent = translations[lang].line28;
+      document.getElementById("photos").textContent = translations[lang].photos;
+      document.getElementById("line29").textContent = translations[lang].line29;
+    }
+
+    document.getElementById("homeLink").addEventListener("click", function() {
+      showContent("homeContent");
+    });
+
+    document.getElementById("aboutLink").addEventListener("click", function() {
+      showContent("aboutContent");
+    });
+
+    document.getElementById("programsLink").addEventListener("click", function() {
+      showContent("programsContent");
+    });
+
+    document.getElementById("galleryLink").addEventListener("click", function() {
+      showContent("galleryContent");
+    });
+
+    function showContent(sectionId) {
+      // All content sections
+      const sections = document.querySelectorAll(".content");
+      sections.forEach(section => {
+        section.style.display = section.id === sectionId ? "block" : "none";
+      });
+    }
+  </script>
 </body>
 </html>
